@@ -1,10 +1,11 @@
-import UserSearch from "./state/UserSearch";
+import EventComponent from "./event/EventComponent";
 
 function App() {
   return (
     <div className="App">
       {/* <GustList /> */}
-      <UserSearch />
+      {/* <UserSearch /> */}
+      <EventComponent />
     </div>
   );
 }
