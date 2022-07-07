@@ -1,3 +1,5 @@
+import UserSearch from "./refs/UserSearch";
+
 function App() {
   // const users = [
   //   { name: "Max", age: 26 },
@@ -7,7 +9,7 @@ function App() {
   return (
     <div className="App">
       {/* <GustList /> */}
-      {/* <UserSearch /> */}
+      <UserSearch />
       {/* <EventComponent /> */}
       {/* <UserSearch users={users} /> */}
     </div>
