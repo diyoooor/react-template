@@ -1,21 +1,29 @@
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/system";
-import { AppBar } from "./components/AppBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import theme from "./theme";
-function App() {
+
+//Component
+import PrimaryLayout from "./components/layouts/primary/PrimaryLayout";
+
+//Page
+import HomePage from "./pages/home-page/HomePage";
+import LoginPage from "./pages/login-page/LoginPage";
+import NotFoundPage from "./pages/notfound-page/NotFoundPage";
+
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AppBar />
-      <div className="App">
-        <Button variant="outlined" color="secondary">
-          Heelo
-        </Button>
-        <Typography color="primary">Hello</Typography>
-        <Typography variant="h1">Hello</Typography>
-      </div>
+      <BrowserRouter>
+        <PrimaryLayout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/auth" element={<LoginPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </PrimaryLayout>
+      </BrowserRouter>
     </ThemeProvider>
   );
-}
+};
 
 export default App;
