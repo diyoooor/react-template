@@ -7,14 +7,22 @@ import {
   List,
   ListItem,
   ListItemButton,
+  ListItemIcon,
   ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
 
-import { useNavigate } from "react-router-dom";
-
+import {
+  AccountCircle,
+  Category,
+  Coffee,
+  Dashboard,
+  Liquor,
+  SportsEsports,
+} from "@mui/icons-material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   window?: () => Window;
@@ -32,26 +40,32 @@ export default function ResponsiveDrawer({ children }: Props) {
   const pages = [
     {
       label: "Dashboard",
+      icon: <Dashboard />,
       to: "/",
     },
     {
       label: "Categories",
+      icon: <Category />,
       to: "/categories",
     },
     {
       label: "User Management",
+      icon: <AccountCircle />,
       to: "/user-management",
     },
     {
       label: "Game",
+      icon: <SportsEsports />,
       to: "/game",
     },
     {
       label: "Coffee",
+      icon: <Coffee />,
       to: "/coffee",
     },
     {
       label: "Alcohol",
+      icon: <Liquor />,
       to: "/alcohol",
     },
   ];
@@ -81,6 +95,7 @@ export default function ResponsiveDrawer({ children }: Props) {
                   navigate(page.to);
                 }}
               >
+                <ListItemIcon>{page.icon}</ListItemIcon>
                 <ListItemText>{page.label}</ListItemText>
               </ListItemButton>
             </ListItem>
@@ -131,7 +146,7 @@ export default function ResponsiveDrawer({ children }: Props) {
             display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: 200,
+              width: 250,
             },
           }}
           open
